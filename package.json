@@ -1,10 +1,10 @@
 {
-  "name": "osx-touchbar-party-parrot",
+  "name": "unicorns-unicorns-everwhere",
   "version": "0.0.1",
-  "description": "Use Electron to display Party Parrots on MacBooks Pro Touch Bar",
-  "main": "src/party.js",
+  "description": "Use Electron to display unicorns on MacBooks Pro Touch Bar",
+  "main": "src/unicornification.js",
   "engines": {
-    "node" : ">=5.6"
+    "node": ">=5.6"
   },
   "dependencies": {},
   "devDependencies": {
