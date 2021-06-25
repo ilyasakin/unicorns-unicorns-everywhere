@@ -3,40 +3,38 @@ const { app, BrowserWindow, TouchBar } = require('electron');
 
 const { TouchBarButton } = TouchBar;
 
-const numOfParrotsToDisplay = 4;
-const parrots = [];
+const unicorns = [
+  new TouchBarButton({
+    icon: path.join(__dirname, '/unicorn/frame-1.png'),
+    backgroundColor: '#000',
+  }),
+];
 
-const initParrots = () => {
-  for (let x = 0; x < numOfParrotsToDisplay; x++) {
-    parrots.push(
-      new TouchBarButton({
-        icon: path.join(__dirname, '/unicorn/frame-1.png'),
-        backgroundColor: '#000',
-      })
-    );
-  }
-  return parrots;
+const initUnicorns = () => {
+  return unicorns;
 };
 
-const touchBar = new TouchBar(initParrots());
+const touchBar = new TouchBar(initUnicorns());
 
-let parrotFrame = 0;
+let unicornFrame = 0;
 
-const updateParrotsFrames = () => {
-  if (parrotFrame > 9) {
-    parrotFrame = 0;
+const updateUnicornFrames = () => {
+  if (unicornFrame > 9) {
+    unicornFrame = 0;
   } else {
-    parrotFrame += 1;
+    unicornFrame += 1;
   }
 
-  const parrotPath = path.join(__dirname, `/unicorn/frame-${parrotFrame}.png`);
-  for (let x = 0; x < numOfParrotsToDisplay; x++) {
-    parrots[x].icon = parrotPath;
-  }
+  const unicornPath = path.join(
+    __dirname,
+    `/unicorn/frame-${unicornFrame}.png`
+  );
+
+  unicorns[0].icon = unicornPath;
 };
 
-const animateParrots = () => {
-  setInterval(updateParrotsFrames, 15);
+const animateUnicorns = () => {
+  setInterval(updateUnicornFrames, 1000 / 60);
 };
 
 let window;
@@ -48,7 +46,7 @@ app.once('ready', () => {
   });
   window.loadURL(`file://${path.join(__dirname, '/index.html')}`);
   window.setTouchBar(touchBar);
-  animateParrots();
+  animateUnicorns();
 });
 
 // Quit when all windows are closed and no other one is listening to this.
