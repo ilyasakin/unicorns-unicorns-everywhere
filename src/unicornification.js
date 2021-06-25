@@ -10,11 +10,7 @@ const unicorns = [
   }),
 ];
 
-const initUnicorns = () => {
-  return unicorns;
-};
-
-const touchBar = new TouchBar(initUnicorns());
+const touchBar = new TouchBar(unicorns);
 
 let unicornFrame = 0;
 
